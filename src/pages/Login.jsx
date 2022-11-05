@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { redirect, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import Form from "../components/Form";
 
 import UserContext from '../context/UserContext';
@@ -14,7 +14,7 @@ const Login = () => {
    
    const [username, setUsername] = useState("");
    const [password, setPassword] = useState("");
-   const { login, isAuth } = useContext(UserContext);
+   const { login } = useContext(UserContext);
 
   //  useEffect = () => ({
      
