@@ -55,7 +55,6 @@ const Login = () => {
                type="text"
                placeholder="Username"
                onChange={handleUsernameChange}
-               required
              />
            </div>
            <div className="mb-6">
@@ -71,7 +70,6 @@ const Login = () => {
                type="password"
                placeholder="Enter your password"
                onChange={handlePasswordChange}
-               required
              />
            </div>
            <div className="flex items-center justify-between">
