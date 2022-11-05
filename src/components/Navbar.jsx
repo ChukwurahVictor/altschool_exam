@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
+import { UserContext } from "../context/UserContext";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
+  const { isAuth, userInfo, logout } = useContext(UserContext);
+
+  const onLogout = (e) => {
+    e.preventDefault();
+    logout();
+  };
 
    return (
-     <nav className="w-full bg-blue-500 shadow">
+     <nav className="w-full bg-blue-800 shadow">
        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
          <div>
            <div className="flex items-center justify-between py-3 md:py-5 md:block">
-             <a href="javascript:void(0)">
+             <a href="/home">
                <h2 className="text-2xl font-bold text-white">LOGO</h2>
              </a>
              <div className="md:hidden">
@@ -68,34 +75,43 @@ const Navbar = () => {
              </ul>
 
              <div className="mt-3 space-y-2 lg:hidden md:hidden">
-               <a
-                 href="/signin"
-                 className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-               >
-                 Sign in
-               </a>
-               <a
-                 href="javascript:void(0)"
-                 className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
-               >
-                 Sign up
-               </a>
+               {!isAuth ? (
+                 <a
+                   href="/login"
+                   className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+                 >
+                   Sign in
+                 </a>
+               ) : (
+                 <>
+                   <h1>Hi, {userInfo?.username}</h1>
+                   <button
+                     onClick={onLogout}
+                     className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+                   >
+                     Logout
+                   </button>
+                 </>
+               )}
              </div>
            </div>
          </div>
          <div className="hidden space-x-2 md:inline-block">
-           <a
-             href="javascript:void(0)"
-             className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-           >
-             Sign in
-           </a>
-           <a
-             href="javascript:void(0)"
-             className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
-           >
-             Sign up
-           </a>
+           {!isAuth ? (
+             <button className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">
+               Sign in
+             </button>
+           ) : (
+             <>
+               <p>Hi, {userInfo?.username}</p>
+               <button
+                 onClick={onLogout}
+                 className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+               >
+                 Logout
+               </button>
+             </>
+           )}
          </div>
        </div>
      </nav>

@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
+import { UserContext } from "../context/UserContext";
 
-const getUser = () => {
-
+export const GetUser = () => {
+   const { userinfo } = useContext(UserContext);
+   return userinfo;
 }
