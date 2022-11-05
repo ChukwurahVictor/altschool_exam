@@ -67,10 +67,10 @@ const Navbar = () => {
                  <a href="/">Home</a>
                </li>
                <li className="text-white hover:text-indigo-200">
-                 <a href="/about">About</a>
+                 <a href="/about">About US</a>
                </li>
                <li className="text-white hover:text-indigo-200">
-                 <a href="/contact">Contact</a>
+                 <a href="/contact">Contact US</a>
                </li>
              </ul>
 
@@ -84,9 +84,7 @@ const Navbar = () => {
                  </a>
                ) : (
                  <>
-                   <p className="inline-block w-full px-4 py-2 text-center text-white">
-                     Welcome, {userInfo?.username}
-                   </p>
+                   <h1>Hi, {userInfo?.username}</h1>
                    <button
                      onClick={onLogout}
                      className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
@@ -98,19 +96,17 @@ const Navbar = () => {
              </div>
            </div>
          </div>
-         <div className="hidden space-x-2 md:flex">
+         <div className="hidden space-x-2 md:inline-block">
            {!isAuth ? (
              <button className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">
                Sign in
              </button>
            ) : (
              <>
-               <div className="px-4 py-2 text-white">
-                 <p>Welcome, {userInfo?.username}</p>
-               </div>
+               <p>Hi, {userInfo?.username}</p>
                <button
                  onClick={onLogout}
-                 className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+                 className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
                >
                  Logout
                </button>
