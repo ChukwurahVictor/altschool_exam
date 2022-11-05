@@ -30,7 +30,7 @@ const App = () => {
   //   return <Login />
   // }
   return (
-    <div className="app">
+    <div className="App">
       <ErrorBoundary FallbackComponent={ErrorFallback}>
           <Navbar />
           <Router>
