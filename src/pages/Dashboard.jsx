@@ -11,10 +11,10 @@ const Dashboard = () => {
   //  }
 
    return (
-     <>
+     <div className="container mx-auto">
        <p>Dashboard</p>
        <p>Hi, {userInfo?.username}</p>
-     </>
+     </div>
    );
 }
 

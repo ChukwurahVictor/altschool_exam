@@ -100,9 +100,11 @@ const Navbar = () => {
          </div>
          <div className="hidden space-x-2 md:flex">
            {!isAuth ? (
-             <button className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">
+             <a 
+                href="/login"
+                className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800">
                Sign in
-             </button>
+             </a>
            ) : (
              <>
                <div className="px-4 py-2 text-white">
