@@ -7,3 +7,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* 404 page styling */
+/* 404 page style */
+.notfound {
+   height: 75vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   /* background-color: #000;
+   color: #fff; */
+}
+
+.notfound a { 
+  text-decoration: none;
+  color: red;
+}
