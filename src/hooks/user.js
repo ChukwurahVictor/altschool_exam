@@ -1,7 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { UserContext } from "../context/UserContext";
 
-export const GetUser = () => {
-   const { userinfo } = useContext(UserContext);
-   return userinfo;
-}
+// const { isAuth, userInfo, logout } = useContext(UserContext);
+
+const useGetUser = (initialState = "") => {
+  const [currentUser, setCurrentUser] = useState(initialState);
+  const user = () => setCurrentUser();
+  return { user };
+};
