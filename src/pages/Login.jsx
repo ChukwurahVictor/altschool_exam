@@ -1,31 +1,21 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Form from "../components/Form";
-
 import UserContext from '../context/UserContext';
-
-// const initialState = {
-//   username: "",
-//   password: "",
-// };
 
 const Login = () => {
    const navigate = useNavigate();
+  //  const { isAuth } = useGetUser();
    
    const [username, setUsername] = useState("");
    const [password, setPassword] = useState("");
    const { login } = useContext(UserContext);
-
-  //  useEffect = () => ({
-     
-  // }, [username, password, isAuth]);
   
   const handleSubmit = (e) => {
     e.preventDefault();
     login(username, password);
     setUsername("");
     setPassword("");
-    navigate("/dashboard")
+    navigate("/dashboard");
    };
 
   const handleUsernameChange = (e) => {
@@ -91,4 +81,4 @@ const Login = () => {
    );
 }
 
-export default Login
+export default Login;

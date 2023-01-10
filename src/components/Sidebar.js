@@ -1,4 +1,16 @@
+import { useContext } from 'react';
+import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
+
 export default function Sidebar() {
+  const navigate = useNavigate();
+  const { logout } = useContext(UserContext);
+
+  const onLogout = (e) => {
+    e.preventDefault();
+    logout();
+    navigate("/login");
+  };
   return (
     <div className="flex">
       <div className="flex flex-col h-screen p-3 bg-white shadow w-60">
@@ -120,7 +132,7 @@ export default function Sidebar() {
                       d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                     />
                   </svg>
-                  <span>Logout</span>
+                  <span onClick={onLogout}>Logout</span>
                 </a>
               </li>
             </ul>

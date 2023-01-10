@@ -1,7 +1,14 @@
 import Login from '../pages/Login';
+import useGetUser from '../hooks/user';
+import Dashboard from './Dashboard';
 
 const Home = () => {
-  return (
+  const { isAuth } = useGetUser();
+  return { isAuth } ? (
+    <>
+      <Dashboard />
+    </>
+  ) : (
     <>
       <Login />
     </>
