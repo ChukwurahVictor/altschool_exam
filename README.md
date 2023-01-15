@@ -17,3 +17,9 @@ npm install
 ```
 npm run start
 ```
+
+## Update (Holiday Challenge)
+- New feature: Added local storage to the userContext to persist the
+authentication
+- Added about and contact to protected routes
+- Rework: Implemented the get user hook and used it
